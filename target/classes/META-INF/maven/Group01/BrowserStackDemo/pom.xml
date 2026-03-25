@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Group01</groupId>
+  <artifactId>BrowserStackDemo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>BrowserStackDemo</name>
+  <description>BrowserStackDemo</description>
+
+<properties>
+  <!-- Java Version -->
+<maven.compiler.source>17</maven.compiler.source>
+<maven.compiler.target>17</maven.compiler.target>
+
+<!-- Framework Versions -->
+<selenium.version>4.8.3</selenium.version>
+<appium.version>8.5.1</appium.version>
+<testng.version>7.8.0</testng.version>
+
+</properties>
+
+<dependencies>
+
+<!-- TestNG -->
+<dependency>
+<groupId>org.testng</groupId>
+<artifactId>testng</artifactId>
+<version>${testng.version}</version>
+<scope>test</scope>
+</dependency>
+
+<!-- Selenium -->
+<dependency>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-java</artifactId>
+<version>${selenium.version}</version>
+</dependency>
+
+<!-- Appium -->
+<dependency>
+<groupId>io.appium</groupId>
+<artifactId>java-client</artifactId>
+<version>${appium.version}</version>
+
+<exclusions>
+
+<exclusion>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-api</artifactId>
+</exclusion>
+
+<exclusion>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-remote-driver</artifactId>
+</exclusion>
+
+</exclusions>
+
+</dependency>
+
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.2.5</version>
+</dependency>
+
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.17.0</version>
+</dependency>
+</dependencies>  
+</project>
