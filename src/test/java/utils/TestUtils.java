@@ -18,7 +18,7 @@ public class TestUtils {
     // Helper method to sleep
     public static void sleep(int seconds) {
         try {
-            Thread.sleep(seconds * 1000);
+            Thread.sleep(seconds * 1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -37,29 +37,49 @@ public class TestUtils {
         Workbook workbook = new XSSFWorkbook(fis);
         Sheet sheet = workbook.getSheetAt(0);
 
-        List<Map<String, String>> dataList = new ArrayList<>();
-
+        Map<String, Map<String, Object>> testDataMap  = new LinkedHashMap<>(); 
+        
         Row headerRow = sheet.getRow(0);
         int colCount = headerRow.getLastCellNum();
 
         for (int i = 1; i <= sheet.getLastRowNum(); i++) {
             Row currentRow = sheet.getRow(i);
-            Map<String, String> rowMap = new LinkedHashMap<>();
-
-            for (int j = 0; j < colCount; j++) {
+            String caseID = getCellValue(currentRow.getCell(0));
+            
+            //create Map for main test case
+            if(!testDataMap.containsKey(caseID)) {
+            	Map<String, Object> rowMap = new LinkedHashMap<>();
+            	//common data insertion for first common columns
+                for (int j = 0; j < 6; j++) {
+                    String key = headerRow.getCell(j).getStringCellValue();
+                    Cell cell = currentRow.getCell(j);
+                    String value = getCellValue(cell);
+                    rowMap.put(key, value);
+                }
+                //data insertion for steps
+                rowMap.put("steps", new ArrayList<Map<String, String>>());
+            	testDataMap.put(caseID, rowMap);
+            }
+            
+            //create map for steps
+            Map<String, String> stepMap = new LinkedHashMap<>();
+            
+            for (int j = 6; j < colCount; j++) {
                 String key = headerRow.getCell(j).getStringCellValue();
                 Cell cell = currentRow.getCell(j);
-
                 String value = getCellValue(cell);
-                rowMap.put(key, value);
+                stepMap.put(key, value);
             }
 
-            dataList.add(rowMap);
+            ((List<Map<String,String>>) testDataMap.get(caseID).get("steps")).add(stepMap);
+            
         }
 
         workbook.close();
         fis.close();
 
+        List<Map<String, Object>> dataList = new ArrayList<>(testDataMap.values());
+        		
         ObjectMapper mapper = new ObjectMapper();
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(jsonFile),dataList);
 

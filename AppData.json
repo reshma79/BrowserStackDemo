@@ -32,12 +32,100 @@
   "Execute" : "N"
 }, {
   "Menu_1" : "Animation",
-  "Menu_2" : "",
+  "Menu_2" : "Bouncing Balls",
   "Menu_3" : "",
   "Input_1" : "",
   "Input_2" : "",
   "ExpectedData" : "",
-  "Execute" : "Y"
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "Cloning",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "Custom Evaluator",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "Default Layout Animations",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "Events",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "Hide-Show Animations",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "Layout Animations",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "Loading",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "Multiple Properties",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "Reversing",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "Seeking",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
+}, {
+  "Menu_1" : "Animation",
+  "Menu_2" : "View Flip",
+  "Menu_3" : "",
+  "Input_1" : "",
+  "Input_2" : "",
+  "ExpectedData" : "",
+  "Execute" : "N"
 }, {
   "Menu_1" : "App",
   "Menu_2" : "",
@@ -45,7 +133,7 @@
   "Input_1" : "",
   "Input_2" : "",
   "ExpectedData" : "",
-  "Execute" : "N"
+  "Execute" : "Y"
 }, {
   "Menu_1" : "Content",
   "Menu_2" : "",
@@ -53,7 +141,7 @@
   "Input_1" : "",
   "Input_2" : "",
   "ExpectedData" : "",
-  "Execute" : "N"
+  "Execute" : "Y"
 }, {
   "Menu_1" : "Graphics",
   "Menu_2" : "",

@@ -19,14 +19,14 @@ public class Runner extends BaseTest{
 
     @DataProvider(name = "data")
     public Object[] getData() throws IOException {
-    	String excelFile = "C:\\RSP\\EclipseProjects\\BrowserStackDemo\\AppData.xlsx";
-    	String jsonFile = "C:\\RSP\\EclipseProjects\\BrowserStackDemo\\AppData.json";
+    	String excelFile = "C:\\RSP\\EclipseProjects\\BrowserStackDemo\\APIDemoTestData.xlsx";
+    	String jsonFile = "C:\\RSP\\EclipseProjects\\BrowserStackDemo\\APIDemoTestData.json";
     	
     	TestUtils.excelToJSONConverter(excelFile,jsonFile);
     	
     	ObjectMapper mapper = new ObjectMapper();
     	
-        List<Map<String, String>> data = mapper.readValue(new File(jsonFile), new TypeReference<List<Map<String,String>>>() {});
+        List<Map<String, Object>> data = mapper.readValue(new File(jsonFile), new TypeReference<List<Map<String,Object>>>() {});
         
         Object[] obj = new Object[data.size()];
 
@@ -57,17 +57,17 @@ public class Runner extends BaseTest{
     		}
     		case "App":
     		{
-    			executeAccessibility(objJSON);
+    			executeApp(objJSON);
     			break;
     		}
     		case "Content":
     		{
-    			executeAccessibility(objJSON);
+    			executeContent(objJSON);
     			break;
     		}
     		case "Graphics":
     		{
-    			executeAccessibility(objJSON);
+    			executeGraphics(objJSON);
     			break;
     		}
     		case "Media":
@@ -97,7 +97,7 @@ public class Runner extends BaseTest{
     		}
     		case "Views":
     		{
-    			executeAccessibility(objJSON);
+    			executeViews(objJSON);
     			break;
     		}
     		default:
@@ -116,46 +116,83 @@ public class Runner extends BaseTest{
 	
     private void executeAccessibility(JsonNode obj) {
 
-    	AccessibilityTest objAT = new AccessibilityTest();
+    	AccessibilityTest objTest = new AccessibilityTest();
 
-    	String menu = obj.get("Menu_2").asText();
-    	switch(menu) {
-    	case "Accessibility Node Querying":
-    	{
-    		objAT.testAccessibilityNodeQuerying(obj);
-    		break;
-    	}
-    	case "Accessibility Node Provider":
-    	{
-    		objAT.testAccessibilityNodeProvider(obj);
-    		break;
-    	}
-    	case "Accessibility Service":
-    	{
-    		objAT.testAccessibilityService(obj);
-    		break;
-    	}
-    	case "Custom View":
-    	{
-    		objAT.testCustomView(obj);
-    		break;
-    	}
-    	default:
-    	{
-    		System.err.println("Menu '"+menu+"' not found or implemented");
-    	}
-    	}
+    	objTest.testExecute(obj);
+    	
     }
 
+    private void executeViews(JsonNode obj) {
+
+    	ViewsTest objTest = new ViewsTest();
+
+    	objTest.testExecute(obj);
+    }
+    
     private void executeAnimation(JsonNode obj) throws Exception {
 
     	AnimationTest objAT = new AnimationTest();
 
     	String menu = obj.get("Menu_2").asText();
     	switch(menu) {
-    	case "":
+    	case "Bouncing Balls":
     	{
-    		objAT.testAnimation(obj);
+    		objAT.testBouncingBalls(obj);
+    		break;
+    	}
+    	case "Cloning":
+    	{
+    		objAT.testCloning(obj);
+    		break;
+    	}
+    	case "Custom Evaluator":
+    	{
+    		objAT.testCustomEvaluator(obj);
+    		break;
+    	}
+    	case "Default Layout Animations":
+    	{
+    		objAT.testDefaultLayoutAnimations(obj);
+    		break;
+    	}
+    	case "Events":
+    	{
+    		objAT.testEvents(obj);
+    		break;
+    	}
+    	case "Hide-Show Animations":
+    	{
+    		objAT.testHideShowAnimations(obj);
+    		break;
+    	}
+    	case "Layout Animations":
+    	{
+    		objAT.testLayoutAnimations(obj);
+    		break;
+    	}
+    	case "Loading":
+    	{
+    		objAT.testLoading(obj);
+    		break;
+    	}
+    	case "Multiple Properties":
+    	{
+    		objAT.testMultipleProperties(obj);
+    		break;
+    	}
+    	case "Reversing":
+    	{
+    		objAT.testReversing(obj);
+    		break;
+    	}
+    	case "Seeking":
+    	{
+    		objAT.testSeeking(obj);
+    		break;
+    	}
+    	case "View Flip":
+    	{
+    		objAT.testViewFlip(obj);
     		break;
     	}
     	default:
@@ -163,8 +200,34 @@ public class Runner extends BaseTest{
     		System.err.println("Menu '"+menu+"' not found or implemented");
     	}
     	}
+    	objAT.navigateBack();
     }
 
+    private void executeContent(JsonNode obj) throws Exception {
+
+    	ContentTest objAT = new ContentTest();
+
+    	objAT.menuContent(obj);
+    	objAT.navigateBack();
+    	
+    }
+    
+    private void executeApp(JsonNode obj) throws Exception {
+
+    	AppTest objAT = new AppTest();
+
+    	objAT.menuApp(obj);
+    	objAT.navigateBack();
+    }
+
+    private void executeGraphics(JsonNode obj) throws Exception {
+
+    	GraphicsTest objAT = new GraphicsTest();
+
+    	objAT.menuGraphics(obj);
+    	objAT.navigateBack();
+    }
+    
     private void executeText(JsonNode obj) throws Exception {
 
     	TextTest objTT = new TextTest();

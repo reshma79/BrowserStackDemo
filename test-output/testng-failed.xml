@@ -5,11 +5,9 @@
     <classes>
       <class name="tests.Runner">
         <methods>
-          <include name="executionEngine"/>
           <include name="setup"/>
+          <include name="executionEngine"/>
           <include name="tearDown"/>
-          <include name="launchApp"/>
-          <include name="restartApp"/>
         </methods>
       </class> <!-- tests.Runner -->
     </classes>

@@ -1,0 +1,131 @@
+[ {
+  "TC_ID" : "TC_01",
+  "Step_No" : "1.0",
+  "Execute" : "Y",
+  "Menu_1" : "Accessibility",
+  "Menu_2" : "Accessibility Node Provider",
+  "Menu_3" : "",
+  "steps" : [ {
+    "Action" : "verify",
+    "LocatorType" : "accessibilityId",
+    "LocatorValue" : "Enable TalkBack and Explore-by-touch from accessibility settings. Then touch the colored squares.",
+    "Input_Data" : "",
+    "Verification_Attribute" : "text",
+    "Verification_Data" : "Enable TalkBack and Explore-by-touch from accessibility settings. Then touch the colored squares.",
+    "Expected" : "Screen opens",
+    "Criteria" : "Navigate to Accessibility screen",
+    "Wait_Time" : "1.0"
+  } ]
+}, {
+  "TC_ID" : "TC_02",
+  "Step_No" : "1.0",
+  "Execute" : "Y",
+  "Menu_1" : "Accessibility",
+  "Menu_2" : "Accessibility Node Querying",
+  "Menu_3" : "",
+  "steps" : [ {
+    "Action" : "click",
+    "LocatorType" : "xpath",
+    "LocatorValue" : "//android.widget.TextView[@text='Take out Trash']/following-sibling::android.widget.CheckBox",
+    "Input_Data" : "",
+    "Verification_Attribute" : "",
+    "Verification_Data" : "",
+    "Expected" : "",
+    "Criteria" : "Check uncheck checkboxes",
+    "Wait_Time" : "1.0"
+  }, {
+    "Action" : "verify",
+    "LocatorType" : "xpath",
+    "LocatorValue" : "//android.widget.TextView[@text='Take out Trash']/following-sibling::android.widget.CheckBox",
+    "Input_Data" : "",
+    "Verification_Attribute" : "checked",
+    "Verification_Data" : "true",
+    "Expected" : "Checkbox selected",
+    "Criteria" : "",
+    "Wait_Time" : "1.0"
+  } ]
+}, {
+  "TC_ID" : "TC_03",
+  "Step_No" : "1.0",
+  "Execute" : "Y",
+  "Menu_1" : "Views",
+  "Menu_2" : "Controls",
+  "Menu_3" : "1. Light Theme",
+  "steps" : [ {
+    "Action" : "type",
+    "LocatorType" : "id",
+    "LocatorValue" : "edit",
+    "Input_Data" : "Hello",
+    "Verification_Attribute" : "",
+    "Verification_Data" : "",
+    "Expected" : "Text entered",
+    "Criteria" : "Enter text in input field",
+    "Wait_Time" : "1.0"
+  }, {
+    "Action" : "click",
+    "LocatorType" : "id",
+    "LocatorValue" : "checkbox1",
+    "Input_Data" : "",
+    "Verification_Attribute" : "",
+    "Verification_Data" : "",
+    "Expected" : "Checkbox selected",
+    "Criteria" : "Select checkbox",
+    "Wait_Time" : "1.0"
+  }, {
+    "Action" : "click",
+    "LocatorType" : "id",
+    "LocatorValue" : "radio1",
+    "Input_Data" : "",
+    "Verification_Attribute" : "",
+    "Verification_Data" : "",
+    "Expected" : "Radio selected",
+    "Criteria" : "Select radio button",
+    "Wait_Time" : "1.0"
+  } ]
+}, {
+  "TC_ID" : "TC_04",
+  "Step_No" : "1.0",
+  "Execute" : "Y",
+  "Menu_1" : "Views",
+  "Menu_2" : "Date Widgets",
+  "Menu_3" : "1. Dialog",
+  "steps" : [ {
+    "Action" : "click",
+    "LocatorType" : "accessibilityId",
+    "LocatorValue" : "change the date",
+    "Input_Data" : "",
+    "Verification_Attribute" : "",
+    "Verification_Data" : "",
+    "Expected" : "Date picker opens",
+    "Criteria" : "Open date picker",
+    "Wait_Time" : "1.0"
+  }, {
+    "Action" : "click",
+    "LocatorType" : "id",
+    "LocatorValue" : "android:id/button1",
+    "Input_Data" : "",
+    "Verification_Attribute" : "",
+    "Verification_Data" : "",
+    "Expected" : "Date selected",
+    "Criteria" : "Confirm date selection",
+    "Wait_Time" : "1.0"
+  } ]
+}, {
+  "TC_ID" : "TC_05",
+  "Step_No" : "1.0",
+  "Execute" : "Y",
+  "Menu_1" : "Views",
+  "Menu_2" : "Drag and Drop",
+  "Menu_3" : "",
+  "steps" : [ {
+    "Action" : "drag",
+    "LocatorType" : "coordinate",
+    "LocatorValue" : "100,500->600,500",
+    "Input_Data" : "",
+    "Verification_Attribute" : "",
+    "Verification_Data" : "",
+    "Expected" : "Drag successful",
+    "Criteria" : "Perform drag and drop",
+    "Wait_Time" : "3.0"
+  } ]
+} ]

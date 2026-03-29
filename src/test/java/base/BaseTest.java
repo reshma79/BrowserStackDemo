@@ -20,7 +20,7 @@ public class BaseTest {
     public static AndroidDriver getDriver() {
 		return driver;
 	}
-
+    //For BrowserStack website
 	@BeforeTest
     public void setup() throws Exception {
 
@@ -41,17 +41,33 @@ public class BaseTest {
         caps.setCapability("build", "Build 2");
         caps.setCapability("name", "Sample Test");
 
-//        driver = new AndroidDriver(
-//                new URL("https://reshmapikle_2HMFvc:5jxcqC2dNJy2v5Spbe4o@hub.browserstack.com/wd/hub"),
-//                caps);
         driver = new AndroidDriver(
                 URI.create("https://reshmapikle_2HMFvc:5jxcqC2dNJy2v5Spbe4o@hub.browserstack.com/wd/hub").toURL(),
                 caps);
         System.out.println("App launched successfully");
 
-
     }
 
+/*    
+    //For BlueStacks
+	@BeforeTest
+    public void setup() throws Exception {
+
+        caps.setCapability("platformName", "Android");
+        caps.setCapability("deviceName", "BlueStacks");
+        caps.setCapability("udid", "127.0.0.1:5555");
+        caps.setCapability("appPackage", "com.example.app");
+        caps.setCapability("appActivity", "com.example.app.MainActivity");
+        caps.setCapability("noReset", true);
+        caps.setCapability("automationName", "UiAutomator2");
+
+        AndroidDriver driver = new AndroidDriver(URI.create("http://127.0.0.1:4723/wd/hub").toURL(), caps);
+        
+        System.out.println("App launched successfully");
+
+    }
+*/	
+	
 //	@BeforeMethod
 	public void launchApp() throws Exception{
         driver = new AndroidDriver(
@@ -71,15 +87,15 @@ public class BaseTest {
     }
 
 //    @AfterMethod
-    public void restartApp() {
+//    public void navigateBack() {
 //    	System.out.println("App Restarted");
 //	    driver.terminateApp("io.appium.android.apis");
 //	    driver.activateApp("io.appium.android.apis");
 //	    driver.closeApp();
 //	    driver.launchApp();
-    	System.out.println("App Quit called in @AfterMethod");
-        driver.quit();
-	}
+//    	System.out.println("navigate back called in @AfterMethod");
+//        driver.navigate().back();
+//	}
 
     
 }
